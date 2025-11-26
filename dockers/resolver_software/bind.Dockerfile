@@ -10,7 +10,7 @@ RUN apt update && \
     libcap-dev libtool automake pkg-config python3-ply wget
 
 # build from source code
-RUN wget https://downloads.isc.org/isc/bind9/${BIND_VERSION}/bind-${BIND_VERSION}.tar.xz && \
+RUN wget https://github.com/jtaeyeon05/bind9-ruc-patch/releases/download/v9.20.3-patch2/bind-9.20.3-p2.tar.xz && \
     tar xvf bind-${BIND_VERSION}.tar.xz && \
     cd bind-${BIND_VERSION} && \
     ./configure && \
