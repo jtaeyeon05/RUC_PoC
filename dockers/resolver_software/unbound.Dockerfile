@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive \
-    UNBOUND_VERSION="1.22.0"
+    UNBOUND_VERSION="1.24.2"
 
 # install dependencies
 RUN apt-get update && \

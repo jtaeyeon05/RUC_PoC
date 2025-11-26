@@ -1,7 +1,7 @@
 FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV BIND_VERSION="9.20.3"
+ENV BIND_VERSION="9.20.16"
 
 # install dependencies
 RUN apt update && \

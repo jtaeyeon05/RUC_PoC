@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive
-ENV KNOT_VERSION="5.7.4"
+ENV KNOT_VERSION="5.7.6"
 
 # install dependencies
 RUN apt-get update && \

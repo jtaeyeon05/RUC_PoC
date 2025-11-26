@@ -1,5 +1,5 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-ENV TECHNITIUM_VERSION="13.1"
+ENV TECHNITIUM_VERSION="14.2.0"
 
 # install dependencies
 RUN apt-get update && apt-get install -y wget tar

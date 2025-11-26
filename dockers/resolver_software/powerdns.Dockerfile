@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND=noninteractive \
-    POWERDNS_VERSION="5.1.3"
+    POWERDNS_VERSION="5.3.1"
 
 # install dependencies
 RUN apt-get update && \
@@ -10,8 +10,8 @@ RUN apt-get update && \
         curl wget ca-certificates dnsutils
 
 # build from source code
-RUN wget https://downloads.powerdns.com/releases/pdns-recursor-${POWERDNS_VERSION}.tar.bz2 && \
-    tar xjf pdns-recursor-${POWERDNS_VERSION}.tar.bz2 && \
+RUN wget https://downloads.powerdns.com/releases/pdns-recursor-${POWERDNS_VERSION}.tar.xz && \
+    tar xjf pdns-recursor-${POWERDNS_VERSION}.tar.xz && \
     cd pdns-recursor-${POWERDNS_VERSION} && \
     curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y && \
     . $HOME/.cargo/env && \
