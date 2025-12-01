@@ -1,18 +1,21 @@
 FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-ENV BIND_VERSION="9.20.3"
+ENV BIND_VERSION="9.20.3-p1"
 
 # install dependencies
 RUN apt update && \
     apt install -y \
     liburcu-dev libnghttp2-dev build-essential libssl-dev libuv1-dev \
-    libcap-dev libtool automake pkg-config python3-ply wget
+    libcap-dev libtool automake pkg-config python3-ply wget \ 
+    libjemalloc-dev libxml2-dev libjson-c-dev \
+    autoconf
 
 # build from source code
-RUN wget https://github.com/jtaeyeon05/bind9-ruc-patch/releases/download/v9.20.3-patch1/bind-9.20.3-p1.tar.xz && \
-    tar xvf bind-${BIND_VERSION}-p1.tar.xz && \
+RUN wget -O bind-${BIND_VERSION}.tar.xz https://github.com/jtaeyeon05/bind9-ruc-patch/releases/download/v9.20.3-patch1/bind-${BIND_VERSION}.tar.xz && \
+    tar xvf bind-${BIND_VERSION}.tar.xz && \
     cd bind-${BIND_VERSION} && \
+    autoreconf -fi && \
     ./configure && \
     make -j$(nproc) && \
     make install && \
